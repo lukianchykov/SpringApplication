@@ -8,14 +8,15 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:component-scan base-package="ua.lukianchykov.springapplication"/>
     <context:property-placeholder location="musicPlayer.properties"/>
 
-        <bean id="musicBean"
-              class="ua.lukianchykov.springapplication.ClassicalMusic"
-              init-method="doMyInit"
-              destroy-method="doMyDestroy"
-              factory-method="getClassicalMusic">
-        </bean>
+<!--        <bean id="musicBean"-->
+<!--              class="ua.lukianchykov.springapplication.ClassicalMusic"-->
+<!--              init-method="doMyInit"-->
+<!--              destroy-method="doMyDestroy"-->
+<!--              factory-method="getClassicalMusic">-->
+<!--        </bean>-->
 <!--    <bean id="rockMusicBean"-->
 <!--          class="ua.lukianchykov.springapplication.RockMusic">-->
 <!--    </bean>-->

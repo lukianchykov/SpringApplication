@@ -1,39 +1,45 @@
 package ua.lukianchykov.springapplication;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+import java.util.Random;
+
+/**
+ * @author Andrey Lukianchykov
+ */
+@Component
 public class MusicPlayer {
-    private List<Music> musicList = new ArrayList<>();
+    //private List<Music> musicList = new ArrayList<>();
+    private ClassicalMusic classicalMusicList;
+    private RockMusic rockMusicList;
+    private RapMusic rapMusicList;
 
-    private String name;
-    private int volume;
-
-    public  MusicPlayer(){}
-
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
+    //IoC
+    @Autowired
+    public MusicPlayer(ClassicalMusic classicalMusicList, RockMusic rockMusicList, RapMusic rapMusicList) {
+        this.classicalMusicList = classicalMusicList;
+        this.rockMusicList = rockMusicList;
+        this.rapMusicList = rapMusicList;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+//    @Autowired
+//    public MusicPlayer(List<Music> musicList) {
+//        this.musicList = musicList;
+//    }
 
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-    public void playMusicList(){
-        for(Music m : musicList){
-            System.out.println("Playing: " + m.getSong());
+    public void playMusic(MusicGenre mGenre) {
+        Random random = new Random();
+        int randNumber = random.nextInt(3);
+        if (mGenre == MusicGenre.CLASSICAL) {
+            System.out.println("Playing: " + classicalMusicList.getSongs().get(randNumber));
+        } else if (mGenre == MusicGenre.ROCK) {
+            System.out.println("Playing: " + rockMusicList.getSongs().get(randNumber));
+        } else {
+            System.out.println("Playing: " + rapMusicList.getSongs().get(randNumber));
         }
     }
+
 }

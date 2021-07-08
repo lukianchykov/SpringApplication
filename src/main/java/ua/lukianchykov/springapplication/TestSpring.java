@@ -2,6 +2,8 @@ package ua.lukianchykov.springapplication;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.concurrent.Callable;
+
 /**
  * @author Andrey Lukianchykov
  */
@@ -11,10 +13,26 @@ public class TestSpring {
                 "applicationContext.xml"
         );
 
-        ClassicalMusic classicalMusic = context.getBean("musicBean", ClassicalMusic.class);
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        musicPlayer.playMusic(MusicGenre.CLASSICAL);
+        musicPlayer.playMusic(MusicGenre.ROCK);
+        musicPlayer.playMusic(MusicGenre.RAP);
 
-        System.out.println(classicalMusic.getSong());
+//        Computer computer = context.getBean("computer", Computer.class);
+//        System.out.println(computer);
 
+
+//        Music music = context.getBean("rockMusic", Music.class);
+//        Music music1 = context.getBean("classicalMusic", Music.class);
+//        Music music2 = context.getBean("rapMusic", Music.class);
+//
+//        MusicPlayer musicPlayer = new MusicPlayer(music);
+//        MusicPlayer classicalMusicPlayer = new MusicPlayer(music1);
+//        MusicPlayer rapMusicPlayer = new MusicPlayer(music2);
+//
+//        musicPlayer.playMusic();
+//        classicalMusicPlayer.playMusic();
+//        rapMusicPlayer.playMusic();
 
 //        MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 //        MusicPlayer secondMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);

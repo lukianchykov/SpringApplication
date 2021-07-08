@@ -1,23 +1,27 @@
 package ua.lukianchykov.springapplication;
 
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @author Andrey Lukianchykov
+ */
+@Component
 public class ClassicalMusic implements Music {
 
-    private ClassicalMusic(){}
+    private List<String> classicalMusicList = new ArrayList<>();
 
-    public static ClassicalMusic getClassicalMusic(){
-        return new ClassicalMusic();
+    public ClassicalMusic(List<String> classicalMusicList) {
+        classicalMusicList.add("Hungarian Rhapsody");
+        classicalMusicList.add("Symphony no. 5 in C Minor, op. 67");
+        classicalMusicList.add("Night on Bald Mountain");
+        this.classicalMusicList = classicalMusicList;
     }
 
-    public void doMyInit(){
-        System.out.println("Doing my initialization");
-    }
-
-    public void doMyDestroy(){
-        System.out.println("Doing my destruction");
-    }
     @Override
-    public String getSong() {
-        return "Hungarian Rhapsody";
+    public List<String> getSongs() {
+        return classicalMusicList;
     }
-
 }
