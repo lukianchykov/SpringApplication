@@ -12,35 +12,19 @@ import java.util.List;
  * @author Andrey Lukianchykov
  */
 @Component
-@Scope("singleton")
 public class ClassicalMusic implements Music {
 
-    @PostConstruct
-    public void doMyInit(){
-        System.out.println("Doing my initialization");
-    }
+    private List<String> classicalMusicList = new ArrayList<>();
 
-    @PreDestroy
-    public void doMyDestroy(){
-        System.out.println("Doing my destruction");
+    public ClassicalMusic(List<String> classicalMusicList) {
+        classicalMusicList.add("Hungarian Rhapsody");
+        classicalMusicList.add("Symphony no. 5 in C Minor, op. 67");
+        classicalMusicList.add("Night on Bald Mountain");
+        this.classicalMusicList = classicalMusicList;
     }
 
     @Override
-    public String getSong() {
-        return "Hungarian Rhapsody";
+    public List<String> getSongs() {
+        return classicalMusicList;
     }
-
-//    private List<String> classicalMusicList = new ArrayList<>();
-//
-//    public ClassicalMusic(List<String> classicalMusicList) {
-//        classicalMusicList.add("Hungarian Rhapsody");
-//        classicalMusicList.add("Symphony no. 5 in C Minor, op. 67");
-//        classicalMusicList.add("Night on Bald Mountain");
-//        this.classicalMusicList = classicalMusicList;
-//    }
-//
-//    @Override
-//    public List<String> getSongs() {
-//        return classicalMusicList;
-//    }
 }

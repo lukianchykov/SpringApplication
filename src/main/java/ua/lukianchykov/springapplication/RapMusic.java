@@ -10,20 +10,17 @@ import java.util.List;
  */
 @Component
 public class RapMusic implements Music {
-    @Override
-    public String getSong() {
-        return "JT Machinima: Newer Wake Again";
+
+    private List<String> rapMusicList = new ArrayList<>();
+
+    public RapMusic(List<String> rapMusicList) {
+        rapMusicList.add("JT Machinima: Newer Wake Again");
+        rapMusicList.add("JT Machinima: Mercy vs Medic");
+        rapMusicList.add("JT Machinima: Your Head Will be Mine");
+        this.rapMusicList = rapMusicList;
     }
-//    private List<String> rapMusicList = new ArrayList<>();
-//
-//    public RapMusic(List<String> rapMusicList) {
-//        rapMusicList.add("JT Machinima: Newer Wake Again");
-//        rapMusicList.add("JT Machinima: Mercy vs Medic");
-//        rapMusicList.add("JT Machinima: Your Head Will be Mine");
-//        this.rapMusicList = rapMusicList;
-//    }
-//    @Override
-//    public List<String> getSongs() {
-//        return rapMusicList;
-//    }
+    @Override
+    public List<String> getSongs() {
+        return rapMusicList;
+    }
 }
