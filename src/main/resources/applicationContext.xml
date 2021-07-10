@@ -9,38 +9,7 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:component-scan base-package="ua.lukianchykov.springapplication"/>
-    <context:property-placeholder location="musicPlayer.properties"/>
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
-<!--        <bean id="musicBean"-->
-<!--              class="ua.lukianchykov.springapplication.ClassicalMusic"-->
-<!--              init-method="doMyInit"-->
-<!--              destroy-method="doMyDestroy"-->
-<!--              factory-method="getClassicalMusic">-->
-<!--        </bean>-->
-<!--    <bean id="rockMusicBean"-->
-<!--          class="ua.lukianchykov.springapplication.RockMusic">-->
-<!--    </bean>-->
-
-<!--    <bean id="classicMusicBean"-->
-<!--          class="ua.lukianchykov.springapplication.ClassicalMusic">-->
-<!--    </bean>-->
-
-<!--    <bean id="rapMusicBean"-->
-<!--          class="ua.lukianchykov.springapplication.RapMusic">-->
-<!--    </bean>-->
-
-<!--    <bean id="musicPlayer"-->
-<!--          class="ua.lukianchykov.springapplication.MusicPlayer"-->
-<!--          scope="prototype">-->
-<!--        <property name="musicList">-->
-<!--            <list>-->
-<!--                <ref bean="rockMusicBean"/>-->
-<!--                <ref bean="classicMusicBean"/>-->
-<!--                <ref bean="rapMusicBean"/>-->
-<!--            </list>-->
-<!--        </property>-->
-<!--        <property name="name" value="${musicPlayer.name}"/>-->
-<!--        <property name="volume" value="${musicPlayer.volume}"/>-->
-<!--    </bean>-->
 
 </beans>
