@@ -1,3 +1,3 @@
-# SpringApplication
+# Basic Spring Framework Principles
 A test project on Spring Framework
-Basic Spring Framework Principles
+
